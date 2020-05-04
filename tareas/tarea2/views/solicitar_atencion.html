@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar Médico</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/tarea1.css">
+	<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+	<script src="./js/tarea1.js"></script>
+	<script src="./js/validacionv2.js"></script>
+</head>
+
+<body>
+	<form action="#" method="post" accept-charset="utf-8">
+		<p>Publicar Solicitud de Atención</p>
+		<label for="nombre" class="text-field">Nombre Solicitante</label>
+		<input type="text" name="nombre-solicitante" id="nombre" placeholder="Ingrese nombre solicitante" maxlength="30" size="200">
+		<br>
+		<p>Marque una especialidad</p>
+		
+		<fieldset name="especialidades-medico">
+		<div class="row" >
+  			<div class="column">
+		    
+				<label class="container">Cardiología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Gastroenterología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Endocrinología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Epidemiología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Geriatría
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Hematología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Infectología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina del deporte
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina de urgencias
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina interna
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Nefrología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Neumología
+				  <input type="checkbox" name="especialidad-solicitud">
+				  <span class="checkmark"></span>
+				</label>
+			</div>
+
+			<div class="column">
+			
+				<label class="container">Neurología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Nutriología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Oncología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Pediatría
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Psiquiatría
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Reumatología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Toxicología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Dermatología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Ginecología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Oftalmología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Otorrinolaringología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Urología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+				
+				<label class="container">Traumatología
+				  <input type="checkbox">
+				  <span class="checkmark"></span>
+				</label>
+			</div>
+		</div>
+	</fieldset>
+		<label for="descripcion" class="text-field">Descripción de síntomas</label>
+		<textarea name="sintomas-solicitante" id="descripcion" cols="40" rows="8" placeholder="Ingrese síntomas" maxlength="500"></textarea>
+		<br>
+		<label for="archivo_complementario" class="text-field">Archivos Complementarios</label>
+		<br>
+		<input type="file" name="archivos-solicitante" id="archivo_complementario">
+		<br>
+		<br>
+		<label for="twitter" class="text-field">Twitter</label>
+		<input type="text" name="twitter-solicitante" id="twitter" placeholder="@usuario" maxlength="80" minlength="3">
+		<br>
+		<br>
+		<label for="mail" class="text-field">Mail</label>
+		<input type="email" name="email-solicitante" id="mail" placeholder="ejemplo@dominio.cl" size=30>
+		<br>
+		<br>
+		<label for="numero" class="text-field">Télefono Celular</label>
+		<input type="number" name="celular-solicitante" id="numero" placeholder="+56912345678" size=15>
+		<br>
+		<label for="regiones" class="text-field">Región</label>
+		<select id="regiones" name="region-solicitante"></select>
+		<label for="comunas" class="text-field">Comuna</label>
+		<select id="comunas" name="comuna-solicitante"></select>
+		<br>
+		<input type="submit" name="enviar" value="Agregar médico">
+	
+	</form>
+</body>
+</html>

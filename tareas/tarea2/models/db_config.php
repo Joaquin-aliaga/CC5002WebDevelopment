@@ -16,7 +16,7 @@ class DBConfig {
         if ($mysqli->connect_errno) {
             echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
-        echo "conexion exitosa a base de datos";
+        //echo "conexion exitosa a base de datos";
 
         $mysqli -> set_charset("utf8");
         return $mysqli;

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar Médico</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/tarea1.css">
+	<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+	<script src="./js/tarea1.js"></script>
+	<script src="./js/validacionv2.js"></script>
+</head>
+
+<body>
+	<form action="./agregar_medico.html" method="post" accept-charset="utf-8">
+		<p>Agregar Médico</p>
+		<label for="regiones" class="text-field">Región</label>
+		<br>
+		<select id="regiones" name="region-medico"></select>
+		<br>
+		<label for="comunas" class="text-field">Comuna</label>
+		<br>
+		<select id="comunas" name="comuna-medico"></select>
+		<br>
+		<label for="nombre" class="text-field">Nombre</label>
+		<br>
+		<input type="text" name="nombre-medico" id="nombre" placeholder="Ingrese nombre medico" size="30">
+		<br>
+		<label for="experiencia" class="text-field">Experiencia</label>
+		<br>
+		<textarea name="experiencia-medico" id="experiencia" cols="40" rows="8" placeholder="Ingrese la experiencia del médico" maxlength="500"></textarea>
+		<br>
+		<p>Marque la(s) especialidad(es) del médico</p>
+		
+		<fieldset name="especialidades-medico">
+		<div class="row" >
+  			<div class="column">
+		    
+				<label class="container">Cardiología
+				  <input type="checkbox" name="especialidades-medico[]" value="Cardiologia">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Gastroenterología
+				  <input type="checkbox" name="especialidades-medico[]" value="Gastroenterología">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Endocrinología
+				  <input type="checkbox" name="especialidades-medico[]" value="Endocrinología">
+				  <span class="checkmark"></span>
+				</label>
+		
+				<label class="container">Epidemiología
+				  <input type="checkbox" name="especialidades-medico[]" value="Epidemiología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Geriatría
+				  <input type="checkbox" name="especialidades-medico[]" value="Geriatría">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Hematología
+				  <input type="checkbox" name="especialidades-medico[]" value="Hematología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Infectología
+				  <input type="checkbox" name="especialidades-medico[]" value="Infectología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina del deporte
+				  <input type="checkbox" name="especialidades-medico[]" value="Medicina del deporte">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina de urgencias
+				  <input type="checkbox" name="especialidades-medico[]" value="Medicina de urgencias">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Medicina interna
+				  <input type="checkbox" name="especialidades-medico[]" value="Medicina interna">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Nefrología
+				  <input type="checkbox" name="especialidades-medico[]" value="Nefrología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Neumología
+				  <input type="checkbox" name="especialidades-medico[]" value="Neumología">
+				  <span class="checkmark"></span>
+				</label>
+			</div>
+
+			<div class="column">
+			
+				<label class="container">Neurología
+				  <input type="checkbox" name="especialidades-medico[]" value="Neurología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Nutriología
+				  <input type="checkbox" name="especialidades-medico[]" value="Nutriología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Oncología
+				  <input type="checkbox" name="especialidades-medico[]" value="Oncología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Pediatría
+				  <input type="checkbox" name="especialidades-medico[]" value="Pediatría">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Psiquiatría
+				  <input type="checkbox" name="especialidades-medico[]" value="Psiquiatría">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Reumatología
+				  <input type="checkbox" name="especialidades-medico[]" value="Reumatología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Toxicología
+				  <input type="checkbox" name="especialidades-medico[]" value="Toxicología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Dermatología
+				  <input type="checkbox" name="especialidades-medico[]" value="Dermatología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Ginecología
+				  <input type="checkbox" name="especialidades-medico[]" value="Ginecología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Oftalmología
+				  <input type="checkbox" name="especialidades-medico[]" value="Oftalmología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Otorrinolaringología
+				  <input type="checkbox" name="especialidades-medico[]" value="Otorrinolaringología">
+				  <span class="checkmark"></span>
+				</label>
+
+				<label class="container">Urología
+				  <input type="checkbox" name="especialidades-medico[]" value="Urología">
+				  <span class="checkmark"></span>
+				</label>
+				
+				<label class="container">Traumatología
+				  <input type="checkbox" name="especialidades-medico[]" value="Traumatología">
+				  <span class="checkmark"></span>
+				</label>
+			
+			</div>
+		</div>
+		</fieldset>
+		<br>
+		<label for="foto" class="text-field">Agregar foto</label>
+		<br>
+		<input type="file" name="foto-medico" id="foto">
+		<br>
+		<br>
+		<label for="twitter" class="text-field">Twitter médico</label>
+		<br>
+		<input type="text" name="twitter-medico" id="twitter" placeholder="@usuario" maxlength="80">
+		<br>
+		<label for="mail" class="text-field">Mail</label>
+		<br>
+		<input type="email" name="email-medico" id="mail" placeholder="ejemplo@dominio.cl" size=30>
+		<br>
+		<label for="numero" class="text-field">Télefono Celular</label>
+		<br>
+		<input type="number" name="celular-medico" id="numero" placeholder="+56912345678" size=40>
+		<br>
+		<input type="submit" name="enviar" value="Agregar médico">
+	
+	</form>
+</body>
+</html>
