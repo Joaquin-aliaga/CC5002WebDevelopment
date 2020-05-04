@@ -19,7 +19,7 @@ $query = "SELECT id, nombre, experiencia, comuna_id, twitter, email, celular FRO
 <body>
 
 <?php
-$result = $dbconn->query($query);
+$result = $db->query($query);
 if ($result->num_rows > 0){
 	// FALTA AGREGAR <th>Especialidades</th>
 	echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
