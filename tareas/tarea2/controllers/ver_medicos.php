@@ -22,11 +22,11 @@ $query = "SELECT id, nombre, experiencia, comuna_id, twitter, email, celular FRO
 $result = $dbconn->query($query);
 if ($result->num_rows > 0){
 	// FALTA AGREGAR <th>Especialidades</th>
-	echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Comuna</th><th>Datos Contacto</th></tr>\n"
+	echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {
 		echo "\t<tr>\n";
-		echo "\t<td>$row[1]</td>\n" //nombre
+		echo "\t<td>$row[1]</td>\n"; //nombre
 		echo "<td>$row[3]</td>\n"; //id comuna
 		echo "<td>twitter: $row[4] <br> mail: $row[5] <br> celular: $row[6]</td>\n";
 		echo "\t</tr>\n";
