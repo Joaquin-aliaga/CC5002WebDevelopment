@@ -1,5 +1,5 @@
 <?php
-require_once('./models/db_config.php')
+require_once('./models/db_config.php');
 $db = DbConfig::getConnection();
 ?>
 
