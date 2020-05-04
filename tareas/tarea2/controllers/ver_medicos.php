@@ -17,105 +17,25 @@ $query = "SELECT id, nombre, experiencia, comuna_id, twitter, email, celular FRO
     <script src="./js/tarea1.js"></script>
 </head>
 <body>
-	<table class="table">
-        <tbody>
-      <tr>
-        <th>Nombre Médico</th>
-        <th>Especialidades</th>
-        <th>Comuna</th>
-        <th>Datos Contacto</th>
-      </tr>
-      <tr data-href="./smurphy.html">
-        <td>Shaun Murphy</td>
-        <td>
-        	Cardiología
-        	<br>
-        	Endocrinología
-        	<br>
-        	Medicina Interna
-        </td>
-        <td>Curicó</td>
-        <td>
-        	mail: smurphy@ilovelea.com
-        	<br>
-    		twitter: @smurphy
-    		<br>
-    		teléfono contacto: +56962748102
-    	</td>
-      </tr>
-      <tr data-href="./nmelendez.html">
-        <td>Neil Melendez</td>
-        <td>
-        	Medicina de Urgencias
-        	<br>
-        	Medicina del deporte
-        </td>
-        <td>Independencia</td>
-        <td>
-        	mail: nmelendez@iamdeath.com
-        	<br>
-    		twitter: @nmelendezrip
-    		<br>
-    		teléfono contacto: +56982512450
-    	</td>
-      </tr>
-      <tr data-href="./lrebolledo.html">
-        <td>Lissett Rebolledo</td>
-        <td>
-        	Psiquiatría
-        	<br>
-        	Pediatría
-        	<br>
-        	Ginecología
-        	<br>
-        	Traumatología
-        </td>
-        <td>Puerto Natales</td>
-        <td>
-        	mail: lissy_pissy@gmail.com
-        	<br>
-    		twitter: @doctoralissy
-    		<br>
-    		teléfono contacto: +56998785769
-    	</td>
-      </tr>
-      <tr data-href="./aaliaga.html">
-        <td>Alelí Aliaga</td>
-        <td>
-        	Epidemiología
-        	<br>
-        	Infectología
-        	<br>
-        	Neumología
-        </td>
-        <td>Santiago</td>
-        <td>
-        	mail: aaleli@gmail.com
-        	<br>
-    		twitter: @dr.alelita
-    		<br>
-    		teléfono contacto: +56971293844
-    	</td>
-      </tr>
-      <tr data-href="./rrebolledo.html">
-       <td>Rhollo Rebolledo</td>
-        <td>
-        	Traumatología
-        	<br>
-        	Reumatología
-        </td>
-        <td>Las Condes</td>
-        <td>
-        	mail: rhollo@ragnar.com
-        	<br>
-    		twitter: @mr.rhollo
-    		<br>
-    		teléfono contacto: +56942011407
-    	</td>
-        </tr>
-        </tbody>
-    </table>
 
+<?php
+$result = $dbconn->query($query);
+if ($result->num_rows > 0){
+	// FALTA AGREGAR <th>Especialidades</th>
+	echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Comuna</th><th>Datos Contacto</th></tr>\n"
+	
+	while ($row = $result->fetch_row()) {
+		echo "\t<tr>\n";
+		echo "\t<td>$row[1]</td>\n" //nombre
+		echo "<td>$row[3]</td>\n"; //id comuna
+		echo "<td>twitter: $row[4] <br> mail: $row[5] <br> celular: $row[6]</td>\n";
+		echo "\t</tr>\n";
+	}
+	echo "</table>\n";
+	echo "</tbody>";
+    echo "</table>";
+}
+?>  
 
 </body>
 </html>
