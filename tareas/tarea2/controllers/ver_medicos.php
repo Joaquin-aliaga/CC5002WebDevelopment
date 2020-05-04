@@ -1,5 +1,5 @@
 <?php
-require_once('./models/db_config.php');
+require_once('../models/db_config.php');
 $db = DbConfig::getConnection();
 
 $query = "SELECT id, nombre, experiencia, comuna_id, twitter, email, celular FROM medico ORDER BY id DESC LIMIT 5";
