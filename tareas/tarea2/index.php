@@ -13,12 +13,12 @@ $db = DbConfig::getConnection();
 <body>
 	<h1>Médicina en línea para todos y todas</h1>
 
-	<a href="./views/agregar_medico.html">Agregar datos de médico</a>
+	<a href="./views/agregar_medico.php">Agregar datos de médico</a>
 	<br>
-	<a href="./controllers/ver_medicos.html">Ver médicos disponibles</a>
+	<a href="./controllers/ver_medicos.php">Ver médicos disponibles</a>
 	<br>
-	<a href="./views/solicitar_atencion.html">Publicar solicitud de atención</a>
+	<a href="./views/solicitar_atencion.php">Publicar solicitud de atención</a>
 	<br>
-	<a href="./controllers/ver_solicitudes.html">Ver solicitudes de atención</a>
+	<a href="./controllers/ver_solicitudes.php">Ver solicitudes de atención</a>
 </body>
 </html>
