@@ -21,6 +21,7 @@ WHERE M.id = $id_medico AND M.comuna_Id = C.Id";
 <body>
 <?php
 $result = $db->query($query);
+// comentario X
 if ($result->num_rows > 0){
     echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Experiencia</th><th>Comuna</th><th>Twitter</th>
     <th>Email</th><th>Celular</th></tr>\n";
