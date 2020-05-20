@@ -6,6 +6,7 @@ $query = "SELECT M.id, M.nombre, M.experiencia, C.nombre as comuna, M.twitter, M
 FROM medico as M, comuna as C  
 WHERE M.comuna_Id = C.Id 
 ORDER BY id DESC LIMIT 5"
+
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +24,32 @@ ORDER BY id DESC LIMIT 5"
 <?php
 $result = $db->query($query);
 if ($result->num_rows > 0){
+
 	// FALTA AGREGAR <th>Especialidades</th>
 	echo "<table class=table><tbody><tr><th></th><th>Nombre Médico</th><th>Especialidad(es)</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {
+
+		//Ejecutamos la consulta para obtener las especialidades
+		$query_esp = "SELECT E.descripcion FROM especialidad as E , especialidad_medico as EM
+		WHERE EM.medico_id = $row[0] AND E.id = EM.especialidad_id";
+
 		echo "\t<tr >\n";
 		echo "<td><a href=ver_medico.php?id=$row[0]>Ver médico</a></td>\n";
 		echo "\t<td>$row[1]</td>\n"; //nombre
-		echo "\t<td>$row[2]</td>\n"; //"especialidades"
-		echo "<td>$row[3]</td>\n"; //comuna
+		echo "<td>";
+		$result_esp = $db->query($query_esp);
+		if($result_esp->num_rows > 0){
+			for ($i=0; $i <  ; $i++) { 
+				# code...
+			}
+			$row_esp = $result_esp->fetch_row();
+			foreach ($row_esp as $key => $value) {
+				echo "$value<br>";
+			}	
+		}
+		echo "</td>";
+		echo "<td>$row[3]</td>\n"; //comuna"
 		echo "<td>twitter: $row[4] <br> mail: $row[5] <br> celular: +$row[6]</td>\n";
 		echo "\t</tr>\n";
 	}
