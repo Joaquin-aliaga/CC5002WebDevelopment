@@ -13,7 +13,7 @@ ORDER BY id DESC LIMIT 5";
 <head>
 	<title>Ver solicitudes</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/tarea1.css">
+	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
     <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/tarea1.js"></script> -->
