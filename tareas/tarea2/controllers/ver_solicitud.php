@@ -4,9 +4,9 @@ $db = DbConfig::getConnection();
 
 $id_solicitud = $_GET["id"];
 
-$query = "SELECT S.id, S.nombre_solicitante, S.especialidad_id, S.sintomas,C.nombre as comuna, S.twitter, S.email, S.celular 
-FROM solicitud_atencion as S, comuna as C 
-WHERE S.id = $id_solicitud AND S.comuna_Id = C.Id"
+$query = "SELECT S.id, S.nombre_solicitante, E.descripcion as especialidad, S.sintomas,C.nombre as comuna, S.twitter, S.email, S.celular 
+FROM solicitud_atencion as S, comuna as C , especialidad as E
+WHERE S.id = $id_solicitud AND S.comuna_Id = C.Id AND S.especialidad_id = E.Id"
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ WHERE S.id = $id_solicitud AND S.comuna_Id = C.Id"
 $result = $db->query($query);
 // comentario X
 if ($result->num_rows > 0){
-    echo "<table class=table><tbody><tr><th>Nombre Solicitante</th><th>Especialidad</th><th>Síntomas</th>
+    echo "<table class=table><tbody><tr><th>Nombre Solicitante</th><th>Especialidad solicitada</th><th>Síntomas</th>
     <th>Comuna</th><th>Twitter</th><th>Email</th><th>Celular</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {

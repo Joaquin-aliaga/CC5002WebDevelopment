@@ -37,16 +37,12 @@ if ($result->num_rows > 0){
 		echo "\t<tr >\n";
 		echo "<td><a href=ver_medico.php?id=$row[0]>Ver médico</a></td>\n";
 		echo "\t<td>$row[1]</td>\n"; //nombre
+		// especialidades
 		echo "<td>";
-		$result_esp = $db->query($query_esp);
-		if($result_esp->num_rows > 0){
-			for ($i=0; $i <  ; $i++) { 
-				# code...
+		if($result_esp = $db->query($query_esp)){
+			while($row_esp = $result_esp->fetch_row()){
+				echo "$row_esp[0]<br>";
 			}
-			$row_esp = $result_esp->fetch_row();
-			foreach ($row_esp as $key => $value) {
-				echo "$value<br>";
-			}	
 		}
 		echo "</td>";
 		echo "<td>$row[3]</td>\n"; //comuna"

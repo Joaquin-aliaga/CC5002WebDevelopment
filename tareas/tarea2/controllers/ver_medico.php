@@ -23,12 +23,25 @@ WHERE M.id = $id_medico AND M.comuna_Id = C.Id";
 $result = $db->query($query);
 // comentario X
 if ($result->num_rows > 0){
-    echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Experiencia</th><th>Comuna</th><th>Twitter</th>
-    <th>Email</th><th>Celular</th></tr>\n";
+    echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Especialidad(es)</th>
+    <th>Experiencia</th><th>Comuna</th><th>Twitter</th><th>Email</th><th>Celular</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {
 		echo "\t<tr >\n";
         echo "\t<td>$row[1]</td>\n"; //nombre
+
+        //Ejecutamos la consulta para obtener las especialidades
+		$query_esp = "SELECT E.descripcion FROM especialidad as E , especialidad_medico as EM
+		WHERE EM.medico_id = $row[0] AND E.id = EM.especialidad_id";
+
+        // especialidades
+		echo "<td>";
+		if($result_esp = $db->query($query_esp)){
+			while($row_esp = $result_esp->fetch_row()){
+				echo "$row_esp[0]<br>";
+			}
+		}
+		echo "</td>";
         echo "\t<td>$row[2]</td>\n"; //experiencia
 		echo "<td>$row[3]</td>\n"; //id comuna
         echo "<td>$row[4]</td>"; //Twitter
