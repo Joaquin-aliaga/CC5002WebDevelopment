@@ -16,7 +16,7 @@ WHERE M.id = $id_medico AND M.comuna_Id = C.Id AND C.region_id = R.id";
     <title>Datos medico</title>
 	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
     <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    
+    <script src="../statics/js/tarea1.js"></script>
 </head>
 <body>
 <?php
@@ -54,6 +54,22 @@ if ($result->num_rows > 0){
 	echo "</tbody>";
     echo "</table>";
 }
+echo "<br>";
+//recuperamos ruta de la foto
+$query_foto = "SELECT M.nombre, FM.ruta_archivo as ruta, FM.nombre_archivo as nombre FROM medico as M, foto_medico as FM
+WHERE $id_medico = FM.medico_id";
+
+if($result_foto = $db->query($query_foto)){
+    $row_foto = $result_foto->fetch_row();
+    echo "<img id=myImg src=../$row_foto[1]/$row_foto[2] alt=$row_foto[0] class=center>";
+    // modal
+    echo "<div id=myModal class=modal>";
+    echo "<span class=close>&times;</span>";
+    echo "<img class=modal-content id=img01 src=../$row_foto[1]/$row_foto[2] alt=$row_foto[0]>";
+    echo "<div id=caption></div>";
+    echo"</div>";
+}
+echo"<br>";
 ?>  
 <a href="./ver_medicos.php">Volver a lista de médicos</a>
 </body>
