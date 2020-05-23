@@ -10,9 +10,9 @@ $paginaActual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 
 $offset = ($paginaActual-1)*$Limite_resultados;
 
-$total_pages_sql = "SELECT COUNT(*) medico";
+$total_pages_sql = "SELECT COUNT(*) FROM medico";
 $resultado = $db->query($total_pages_sql);
-$total_rows = $resultado->fetch_array()[0];
+$total_rows = $resultado->fetch_row()[0];
 $total_pages = ceil($total_rows / $Limite_resultados);
 
 
@@ -69,14 +69,14 @@ if ($result->num_rows > 0){
 }
 ?>  
 <ul class="pagination">
-    <li><a href="?pagina=1">First</a></li>
+    <li><a href="ver_medicos.php?pagina=1">First</a></li>
     <li class="<?php if($paginaActual <= 1){ echo 'disabled'; } ?>">
-        <a href="<?php if($paginaActual <= 1){ echo '#'; } else { echo "?pagina=".($paginaActual - 1); } ?>">Prev</a>
+        <a href="<?php if($paginaActual <= 1){ echo '#'; } else { echo "ver_medicos.php?pagina=".($paginaActual - 1); } ?>">Prev</a>
     </li>
     <li class="<?php if($paginaActual >= $total_pages){ echo 'disabled'; } ?>">
-        <a href="<?php if($paginaActual >= $total_pages){ echo '#'; } else { echo "?pagina=".($paginaActual + 1); } ?>">Next</a>
+        <a href="<?php if($paginaActual >= $total_pages){ echo '#'; } else { echo "ver_medicos.php?pagina=".($paginaActual + 1); } ?>">Next</a>
     </li>
-    <li><a href="?pagina=<?php echo $total_pages; ?>">Last</a></li>
+    <li><a href="ver_medicos.php?pagina=<?php echo $total_pages; ?>">Last</a></li>
 </ul>
 </body>
 </html>
