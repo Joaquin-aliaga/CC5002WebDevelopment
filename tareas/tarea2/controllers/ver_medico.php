@@ -17,6 +17,7 @@ WHERE M.id = $id_medico AND M.comuna_Id = C.Id AND C.region_id = R.id";
 	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
     <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
     <script src="../statics/js/tarea1.js"></script>
+    <script src="../statics/js/imagenes.js"></script>
 </head>
 <body>
 <?php
