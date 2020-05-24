@@ -30,7 +30,8 @@ ORDER BY id ASC LIMIT $offset, $Limite_resultados";
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
     <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../statics/js/linkedrows.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/tarea1.js"></script> -->
 </head>
 <body>
@@ -48,8 +49,8 @@ if ($result->num_rows > 0){
 		$query_esp = "SELECT E.descripcion FROM especialidad as E , especialidad_medico as EM
 		WHERE EM.medico_id = $row[0] AND E.id = EM.especialidad_id";
 
-		echo "\t<tr >\n";
-		echo "<td><a href=ver_medico.php?id=$row[0]>Ver médico</a></td>\n";
+		echo "\t<tr data-href=ver_medico.php?id=$row[0]>\n";
+		//echo "<td><a data-href=ver_medico.php?id=$row[0]>Ver médico</a></td>\n";
 		echo "\t<td>$row[1]</td>\n"; //nombre
 		// especialidades
 		echo "<td>";
