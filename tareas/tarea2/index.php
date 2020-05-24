@@ -6,14 +6,14 @@ $db = DbConfig::getConnection();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tarea 1</title>
+	<title>Sistema de telemedicina</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./statics/css/tarea1.css">
 </head>
 <body>
 	<h1>Médicina en línea para todos y todas</h1>
 
-	<a href="./views/agregar_medico.php">Agregar datos de médico</a>
+	<a href="./views/agregar_medico.html">Agregar datos de médico</a>
 	<br>
 	<a href="./controllers/ver_medicos.php">Ver médicos disponibles</a>
 	<br>

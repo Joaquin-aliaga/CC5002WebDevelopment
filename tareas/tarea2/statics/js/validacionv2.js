@@ -3,7 +3,7 @@
 $(function() {
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"  
-    $("form").validate({
+    $("agregamedico").validate({
       // Specify validation rules
       rules: {
         // The key name on the left side is the name attribute
@@ -12,6 +12,13 @@ $(function() {
         "nombre-medico": {
             required:true,
             pattern: /^[A-Z ]{2,30}$/i
+        },
+        "especialidades-medico[]":{
+          required:true,
+          maxlength: 5
+        },
+        "experiencia-medico":{
+          maxlength: 500
         },
         "nombre-solicitante":{
             required:true,
@@ -44,6 +51,7 @@ $(function() {
       // Specify validation error messages
       messages: {
         "nombre-medico": "Ingrese un nombre válido",
+        "especialidades-medico[]": "Debe elegir entre 1 y 5 especialidades",
         "nombre-solicitante": "Ingrese un nombre válido",
         "email-medico": "Ingrese un mail válido",
         "email-solicitante": "Ingrese un mail válido",
