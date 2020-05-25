@@ -100,7 +100,7 @@ function checkPhone($post){
  */
 function checkImage($files)
 	// Validamos que el archivo sea una imagen
-	if(!getimagesize($files['imagen']['tmp_name'])){
+	if(!getimagesize($files['foto-medico[]']['tmp_name'])){
 		echo "<p style=color:red;font-size:50px>Error: el archivo no es una imagen!</p>";
 		return false;
 	}
