@@ -26,7 +26,7 @@ tr[data-href]:hover {
   width:240px;
 }
 
-input[type=text], input[type=number], input[type=radio], input[type=email],select, textarea{
+input[type=text], input[type=number], input[type=email],select, textarea{
     width: auto;
     padding: 10px 20px;
     margin: 8px 5%;
@@ -134,12 +134,15 @@ div {
 }
 
 .column {
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
 }
 
 /* Clear floats after the columns */
 .row:after {
+  margin-left: auto;
+  margin-right: auto;
   content: "";
   display: table;
   clear: both;

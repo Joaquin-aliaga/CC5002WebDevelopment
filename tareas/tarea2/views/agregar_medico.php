@@ -4,7 +4,7 @@
 	<title>Agregar Médico</title>
 	<meta charset="utf-8">
 	<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
+	<link rel="stylesheet" type="text/css" href="../statics/css/aux3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
@@ -18,6 +18,7 @@
       print_r($_GET['errores']); 
     }
   ?>
+	<div id="container"> 
 	<form id="formulario_medico" action="../controllers/procesar_medico.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		<p>Agregar Médico</p>
 		<label for="regiones" class="text-field">Región</label>
@@ -114,9 +115,9 @@
 		<input type="checkbox" name="especialidades-medico[]" id="traumatologia value="Traumatología">
 	
 		<br>
-		<label for="foto" class="text-field">Agregar foto</label>
+		<label for="foto" class="text-field">Agregar foto(s) médico</label>
 		<br>
-		<input type="file" name="foto-medico" id="foto">
+		<input type="file" name="foto-medico[]" id="foto">
 		<br>
 		<label for="twitter" class="text-field">Twitter médico</label>
 		<br>
@@ -132,6 +133,7 @@
 		<br>
 		<input type="submit" name="enviar" value="Agregar médico">
 	</form>
+</div>
 	<a href="../index.php">Volver a menú principal</a>
 </body>
 </html>
