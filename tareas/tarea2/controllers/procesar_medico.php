@@ -90,21 +90,17 @@ if (!move_uploaded_file($_FILES['foto-medico']['tmp_name'], $uploadfile)) {
 
 // Si llegamos hasta aca es porque pasaron las validaciones y el archivo es correcto.
 
-// HACER LOS GET DE COMUNA, REGION Y ESPECIALIDAD
+// GET DE COMUNA, REGION Y ESPECIALIDADES
 $array_cr = getComunaRegionId($_POST['comuna-medico']);
-print_r($array_cr);
 $array_especialidades = getEspecialidadesIds($_POST['especialidades-medico']);
-print_r($array_especialidades);
 
 
 // llamar a funcion para insertar datos de medico
 insertarMedico($_POST['nombre-medico'],$_POST['experiencia-medico'],$array_cr[0],$_POST['twitter-medico'],
 $_POST['email-medico'],$_POST['celular-medico'],$array_especialidades,$filename);
 
-header("Location: http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php?exito=1");
+header("Location: http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php?exito_medico=1");
 
 ?>
-
-<h1>Confirmación registro medico</h1>
 </body>
 </html>

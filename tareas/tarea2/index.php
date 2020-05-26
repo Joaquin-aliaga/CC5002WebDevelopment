@@ -16,9 +16,11 @@ $db = DbConfig::getConnection();
     if(isset($_GET['errores'])){
       print_r($_GET['errores']); 
 	}
-	if(isset($_GET['exito'])){
+	if(isset($_GET['exito_medico'])){
 		echo "<p style=color:blue;font-size:50px>Nuevo médico insertado exitosamente!</p>";
-    
+	}
+	if(isset($_GET['exito_solicitud'])){
+		echo "<p style=color:blue;font-size:50px>Nueva solicitud insertada exitosamente!</p>";
 	}
   ?>
 </div>
