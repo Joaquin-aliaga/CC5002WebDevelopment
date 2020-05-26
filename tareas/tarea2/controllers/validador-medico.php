@@ -15,7 +15,7 @@ function checkNRC($post){
 	}
 	if(isset($post['region-medico'])){
 		$regexp = "/^[A-Za-záéíóú\ ]+$/";
-		if(preg_match($regexp, $post['region.medico'])){
+		if(preg_match($regexp, $post['region-medico'])){
 			$region = true;
 		}
 		else{
@@ -100,9 +100,9 @@ function checkPhone($post){
  */
 function checkImage($files)
 	// Validamos que el archivo sea una imagen
-	if(!getimagesize($files['foto-medico[]']['tmp_name'])){
-		echo "<p style=color:red;font-size:50px>Error: el archivo no es una imagen!</p>";
-		return false;
+	if($tipoimagen = exif_imagetype($files['foto-medico[]']['tmp_name'])){
+		return $tipoimagen;
 	}
-	return true;
+	echo "<p style=color:red;font-size:50px>Error: el archivo no es una imagen!</p>";
+	return false;
 ?>
