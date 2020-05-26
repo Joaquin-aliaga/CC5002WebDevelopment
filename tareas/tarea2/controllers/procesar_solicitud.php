@@ -14,7 +14,9 @@ require_once("../models/insertar_datos_solicitud.php");
 //Crear folder media si no existe
 if(!is_dir("../statics/media")){
 	echo "Creando carpeta ../statics/media<br>";
-	mkdir("../statics/media");
+    mkdir("../statics/media",0777,true);
+    chmod('../statics',0777);
+    chmod('../statics/media',0777);
 }
 
 // si hay informacion en POST

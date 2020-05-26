@@ -14,8 +14,11 @@ require_once("../models/insertar_datos_medico.php");
 //Crear folder imagenes si no existe
 if(!is_dir("../statics/imagenes")){
 	echo "Creando carpeta ../statics/imagenes<br>";
-	mkdir("../statics/imagenes");
+    mkdir("../statics/imagenes",0777,true);
+    chmod('../statics',0777);
+    chmod('../statics/imagenes',0777);
 }
+
 
 // verificamos si hay datos en POST
 if($_POST){
