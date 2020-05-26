@@ -132,5 +132,6 @@
 		<br>
 		<input type="submit" name="enviar" value="Agregar médico">
 	</form>
+	<a href="../index.php">Volver a menú principal</a>
 </body>
 </html>

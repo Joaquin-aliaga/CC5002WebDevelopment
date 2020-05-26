@@ -25,7 +25,7 @@ ORDER BY id DESC LIMIT 5";
 $result = $db->query($query);
 if ($result->num_rows > 0){
 	// FALTA AGREGAR <th>Especialidades</th>
-	echo "<table class=table><tbody><tr><th></th><th>Nombre Solicitante</th><th>Especialidad solicitada</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
+	echo "<table class=table><tbody><tr><th>Nombre Solicitante</th><th>Especialidad solicitada</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {
 		echo "\t<tr data-href=ver_solicitud.php?id=$row[0]>\n";
@@ -40,8 +40,8 @@ if ($result->num_rows > 0){
 	echo "</tbody>";
     echo "</table>";
 }
-$dn->close();
+$db->close();
 ?>  
-
+<a href="../index.php">Volver a menú principal</a>
 </body>
 </html>
