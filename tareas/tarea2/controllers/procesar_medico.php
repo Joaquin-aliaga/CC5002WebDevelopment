@@ -9,6 +9,8 @@
 
 <?php
 require_once("./validador_medico.php");
+require_once("../models/get_ids.php");
+require_once+("../models/insertar_datos_medico.php");
 
 //Crear folder media si no existe
 if(!is_dir("../media")){
@@ -48,8 +50,13 @@ else{
 //validamos que hayan archivos para subir
 if($_FILES){
     // esto debiese ser un ciclo si hay mas de un archivo..
-    if(!checkImage($_FILES)){
+    $tipoimagen = checkImage($_FILES);
+    // si checkImage falla, retorna falso
+    if(!$tipoimagen){
         $errores[] = "Error en formato imagen";
+    }
+    else{
+        $extension = image_type_to_extension($tipoimagen);
     }
 }
 else{
@@ -59,21 +66,32 @@ else{
 
 // validamos que hayan pasado todos los check
 if(count($errores)>0){//Si el arreglo $errores tiene elementos, debemos mostrar el error.
-    header("Location: index.php?errores=".implode($errores, "<br>"));//Redirigimos al formulario inicio con los errores encontrados
+    //header("Location: index.php?errores=".implode($errores, "<br>"));//Redirigimos al formulario inicio con los errores encontrados
+    echo "<p style=color:red;font-size:50px>Hay errores en las entradas del formulario!</p>";
+    echo "$errores";
     return; //No dejamos que continue la ejecución
 }
 
-// Se suben las fotos al servidor
+// Se intenta subir las fotos al servidor
 $uploaddir = '../media/';
-$filename = $_FILES['foto-medico']['name'];
+// La imagen quedara guardada como nombre-medico_foto
+$filename = $_POST['nombre-medico'] . "_foto" . $extension;
 $uploadfile = $uploaddir.basename($filename);
+
 
 if (!move_uploaded_file($_FILES['foto-medico[]']['tmp_name'], $uploadfile)) {
     echo "<p style=color:red;font-size:50px>Error: no es posible subir foto al servidor!</p>";
     return;
 }
 
-// llamar a funcion para insertar datos
+// Si llegamos hasta aca es porque pasaron las validaciones y el archivo es correcto.
+
+// HACER LOS GET DE COMUNA, REGION Y ESPECIALIDAD
+$array_cr = getComunaRegionId($_POST['comuna-medico']);
+$array_especialidades = getEspecialidadesIds($_POST['especialidades-medico[]']);
+
+
+// llamar a funciones para insertar datos
 
 
 ?>
