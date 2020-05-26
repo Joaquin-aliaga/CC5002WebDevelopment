@@ -80,5 +80,6 @@ $db->close();
     </li>
     <li><a href="ver_medicos.php?pagina=<?php echo $total_pages; ?>">Last</a></li>
 </ul>
+<a href="http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php">Volver a menú inicial</a>
 </body>
 </html>

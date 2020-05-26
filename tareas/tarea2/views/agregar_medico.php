@@ -18,7 +18,7 @@
       print_r($_GET['errores']); 
     }
   ?>
-	<form action="../controllers/procesar_medico.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+	<form id="formulario_medico" action="../controllers/procesar_medico.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		<p>Agregar Médico</p>
 		<label for="regiones" class="text-field">Región</label>
 		<br>
@@ -131,7 +131,6 @@
 		<input type="number" name="celular-medico" id="numero" placeholder="56912345678">
 		<br>
 		<input type="submit" name="enviar" value="Agregar médico">
-	
 	</form>
 </body>
 </html>
