@@ -2,36 +2,15 @@
 /**
  * Validación nombre, region y comuna.
  */
-function checkNRC($post){
+function checkName($post){
 	// validamos el nombre
 	if(isset($post['nombre-medico'])){
 		$regexp = "/^[A-Za-záéíóú\ ]+$/";
 		if(preg_match($regexp, $post['nombre-medico'])){
-			$nombre = true;
-		}
-		else{
-			$nombre = false;
+			return true;
 		}
 	}
-	if(isset($post['region-medico'])){
-		$regexp = "/^[A-Za-záéíóú\ ]+$/";
-		if(preg_match($regexp, $post['region-medico'])){
-			$region = true;
-		}
-		else{
-			$region = false;
-		}
-	}
-	if(isset($post['comuna-medico'])){
-		$regexp = "/^[A-Za-záéíóú\ ]+$/";
-		if(preg_match($regexp, $post['comuna-medico'])){
-			$comuna = true;
-		}
-		else{
-			$comuna = false;
-		}
-	}
-	return ($nombre and $region and $comuna);
+	return false;
 }
 
 
@@ -79,7 +58,7 @@ function checkTwitter($post){
  * Validacion de formato mail
  */
 function checkMail($post){
-	$email = test_input($post["email-medico"]);
+	$email = $post["email-medico"];
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		return true;
 	}
@@ -87,7 +66,7 @@ function checkMail($post){
 }
 function checkPhone($post){
 	if(isset($post['celular-medico'])){
-		$regexp = "/^(\+?569)?(\s?)[9876543]\d{7}$/";
+		$regexp = "/^(569)[9876543210]\d{8}$/";
 		if(preg_match($regexp, $post['celular-medico'])){
 			return true;
 		}
@@ -98,11 +77,12 @@ function checkPhone($post){
 /**
  * Validador foto medico
  */
-function checkImage($files)
+function checkImage($files){
 	// Validamos que el archivo sea una imagen
-	if($tipoimagen = exif_imagetype($files['foto-medico[]']['tmp_name'])){
+	if($tipoimagen = exif_imagetype($files['foto-medico']['tmp_name'])){
 		return $tipoimagen;
 	}
 	echo "<p style=color:red;font-size:50px>Error: el archivo no es una imagen!</p>";
 	return false;
+}
 ?>

@@ -3,7 +3,7 @@
 $(function() {
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"  
-    $("agregamedico").validate({
+    $("form").validate({
       // Specify validation rules
       rules: {
         // The key name on the left side is the name attribute
@@ -31,7 +31,7 @@ $(function() {
         "email-solicitante": {
             required: true,
             email: true
-          },
+        },
         "twitter-medico":{
             pattern: /(^|[^@\w])@(\w{1,15})\b/
         },

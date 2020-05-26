@@ -9,10 +9,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
 	<script src="../statics/js/tarea1.js"></script>
+	<script src="../statics/js/validacionv2.js"></script>
 </head>
 
 <body>
-	<form id="agregamedico" action="../models/insertar_medico.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+  <?php
+    if(isset($_GET['errores'])){
+      print_r($_GET['errores']); 
+    }
+  ?>
+	<form action="../controllers/procesar_medico.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		<p>Agregar Médico</p>
 		<label for="regiones" class="text-field">Región</label>
 		<br>
@@ -110,7 +116,7 @@
 		<br>
 		<label for="foto" class="text-field">Agregar foto</label>
 		<br>
-		<input type="file" name="foto-medico[]" id="foto">
+		<input type="file" name="foto-medico" id="foto">
 		<br>
 		<label for="twitter" class="text-field">Twitter médico</label>
 		<br>
@@ -122,7 +128,7 @@
 		<br>
 		<label for="numero" class="text-field">Télefono Celular</label>
 		<br>
-		<input type="number" name="celular-medico" id="numero" placeholder="+56912345678">
+		<input type="number" name="celular-medico" id="numero" placeholder="56912345678">
 		<br>
 		<input type="submit" name="enviar" value="Agregar médico">
 	
