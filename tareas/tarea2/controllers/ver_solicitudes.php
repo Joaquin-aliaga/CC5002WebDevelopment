@@ -2,10 +2,24 @@
 require_once('../models/db_config.php');
 $db = DbConfig::getConnection();
 
+// seteamos el limite de resultados
+$Limite_resultados = 5;
+
+//vemos en qué pagina estamos (si no hay valor, se setea en 1)
+$paginaActual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1; 
+
+$offset = ($paginaActual-1)*$Limite_resultados;
+
+$total_pages_sql = "SELECT COUNT(*) FROM solicitud_atencion";
+$resultado = $db->query($total_pages_sql);
+$total_rows = $resultado->fetch_row()[0];
+$total_pages = ceil($total_rows / $Limite_resultados);
+
+
 $query = "SELECT S.id, S.nombre_solicitante, E.descripcion as especialidad, C.nombre as comuna, S.twitter, S.email, S.celular 
 FROM solicitud_atencion as S, comuna as C, especialidad as E 
 WHERE S.comuna_Id = C.Id and S.especialidad_id = E.Id
-ORDER BY id DESC LIMIT 5";
+ORDER BY id ASC LIMIT $offset, $Limite_resultados";
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +55,17 @@ if ($result->num_rows > 0){
     echo "</table>";
 }
 $db->close();
-?>  
+?>
+<ul class="pagination">
+    <li><a href="ver_solicitudes.php?pagina=1">First</a></li>
+    <li class="<?php if($paginaActual <= 1){ echo 'disabled'; } ?>">
+        <a href="<?php if($paginaActual <= 1){ echo '#'; } else { echo "ver_solicitudes.php?pagina=".($paginaActual - 1); } ?>">Prev</a>
+    </li>
+    <li class="<?php if($paginaActual >= $total_pages){ echo 'disabled'; } ?>">
+        <a href="<?php if($paginaActual >= $total_pages){ echo '#'; } else { echo "ver_solicitudes.php?pagina=".($paginaActual + 1); } ?>">Next</a>
+    </li>
+    <li><a href="ver_solicitudes.php?pagina=<?php echo $total_pages; ?>">Last</a></li>
+</ul>
 <a href="../index.php">Volver a menú principal</a>
 </body>
 </html>
