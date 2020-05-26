@@ -101,6 +101,8 @@ print_r($array_especialidades);
 insertarMedico($_POST['nombre-medico'],$_POST['experiencia-medico'],$array_cr[0],$_POST['twitter-medico'],
 $_POST['email-medico'],$_POST['celular-medico'],$array_especialidades,$filename);
 
+header("Location: http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php?exito=1");
+
 ?>
 
 <h1>Confirmación registro medico</h1>
