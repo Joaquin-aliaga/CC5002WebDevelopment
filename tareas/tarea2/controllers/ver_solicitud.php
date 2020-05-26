@@ -43,6 +43,7 @@ if ($result->num_rows > 0){
 	echo "</tbody>";
     echo "</table>";
 }
+$db->close();
 ?>  
 <a href="./ver_solicitudes.php">Volver a lista de solicitudes</a>
 </body>

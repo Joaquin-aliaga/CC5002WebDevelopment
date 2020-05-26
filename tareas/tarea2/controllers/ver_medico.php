@@ -1,6 +1,6 @@
 <?php
 require_once('../models/db_config.php');
-$db = DbConfig::getConnection();
+$db = DBConfig::getConnection();
 
 $id_medico = $_GET["id"];
 
@@ -70,6 +70,7 @@ if($result_foto = $db->query($query_foto)){
     echo"</div>";
 }
 echo"<br>";
+$db->close();
 ?>  
 <a href="./ver_medicos.php">Volver a lista de médicos</a>
 </body>

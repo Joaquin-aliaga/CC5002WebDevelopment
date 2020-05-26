@@ -68,6 +68,7 @@ if ($result->num_rows > 0){
 	echo "</tbody>";
     echo "</table>";
 }
+$db->close();
 ?>  
 <ul class="pagination">
     <li><a href="ver_medicos.php?pagina=1">First</a></li>

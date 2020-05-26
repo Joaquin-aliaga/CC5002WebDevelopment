@@ -40,6 +40,7 @@ if ($result->num_rows > 0){
 	echo "</tbody>";
     echo "</table>";
 }
+$dn->close();
 ?>  
 
 </body>
