@@ -14,7 +14,7 @@ class DBConfig {
     private static $db_user = "cc5002";
     private static $db_pass = "programacionweb";
     private static $db_host = "localhost";
-    
+    git 
     private static $db_port = 3306;
     
     public static function getConnection (){

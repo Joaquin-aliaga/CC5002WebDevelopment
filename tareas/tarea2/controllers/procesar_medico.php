@@ -102,8 +102,10 @@ $array_especialidades = getEspecialidadesIds($_POST['especialidades-medico']);
 insertarMedico($_POST['nombre-medico'],$_POST['experiencia-medico'],$array_cr[0],$_POST['twitter-medico'],
 $_POST['email-medico'],$_POST['celular-medico'],$array_especialidades,$filename);
 
-header("Location: http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php?exito_medico=1");
+$ruta_index = "/tarea2/index.php?exito_medico=1";
 
+//header("Location: http://localhost/CC5002WebDevelopment/tareas/tarea2/index.php?exito_medico=1");
+header("Location: $ruta_index");
 ?>
 </body>
 </html>
