@@ -85,7 +85,7 @@ $filename = $nombre_medico . "_foto" . $extension;
 $uploadfile = $uploaddir.basename($filename);
 
 
-if (!move_uploaded_file($_FILES['foto-medico']['tmp_name'], $uploadfile)) {
+if (!move_uploaded_file($_FILES['foto-medico']['tmp_name'][0], $uploadfile)) {
     echo "<p style=color:red;font-size:50px>Error: no es posible subir foto al servidor!</p>";
     return;
 }

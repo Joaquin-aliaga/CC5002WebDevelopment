@@ -118,7 +118,7 @@
 		<br>
 		<label for="archivo_complementario" class="text-field">Archivos Complementarios</label>
 		<br>
-		<input type="file" name="archivos-solicitante" id="archivo_complementario">
+		<input type="file" name="archivos-solicitante[]" id="archivo_complementario">
 		<br>
 		<br>
 		<label for="twitter" class="text-field">Twitter</label>

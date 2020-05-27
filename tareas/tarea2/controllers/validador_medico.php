@@ -79,8 +79,9 @@ function checkPhone($post){
  */
 function checkImage($files){
 	// Validamos que el archivo sea una imagen
-	if($tipoimagen = exif_imagetype($files['foto-medico']['tmp_name'])){
-		return $tipoimagen;
+	if(getimagesize($files['foto-medico']['tmp_name'][0])){
+		$tipoimagen = getimagesize($files['foto-medico']['tmp_name'][0])[2];
+		return $tipoimagen;	
 	}
 	echo "<p style=color:red;font-size:50px>Error: el archivo no es una imagen!</p>";
 	return false;
