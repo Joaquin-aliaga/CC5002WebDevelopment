@@ -41,7 +41,7 @@ $result = $db->query($query);
 if ($result->num_rows > 0){
 	//print_r($result->num_rows);
 	// FALTA AGREGAR <th>Especialidades</th>
-	echo "<table class=table><tbody><tr><th></th><th>Nombre Médico</th><th>Especialidad(es)</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
+	echo "<table class=table><tbody><tr><th>Nombre Médico</th><th>Especialidad(es)</th><th>Comuna</th><th>Datos Contacto</th></tr>\n";
 	
 	while ($row = $result->fetch_row()) {
 

@@ -4,17 +4,17 @@ Clase DBConfig para crear conexion a base de datos
 */
 
 class DBConfig {
-    
+    /*
     private static $db_name = "cc500203_db"; //Base de datos de la app
     private static $db_user = "cc500203_u"; //Usuario MySQL
     private static $db_pass = "llentesque"; //Password
     private static $db_host = "localhost"; //este debe quedar igual
-    /*
+    */
     private static $db_name = "tarea2";
     private static $db_user = "cc5002";
     private static $db_pass = "programacionweb";
     private static $db_host = "localhost";
-    */
+    
     private static $db_port = 3306;
     
     public static function getConnection (){
