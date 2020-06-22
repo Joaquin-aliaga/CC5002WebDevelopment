@@ -9,6 +9,8 @@ $db = DbConfig::getConnection();
 	<title>Sistema de telemedicina</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./statics/css/tarea1.css">
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    
 </head>
 <body>
 <div class="avisos">
@@ -34,5 +36,8 @@ $db = DbConfig::getConnection();
 	<a href="./views/solicitar_atencion.php">Publicar solicitud de atención</a>
 	<br>
 	<a href="./controllers/ver_solicitudes.php">Ver solicitudes de atención</a>
+	<form accept-charset="utf-8" method="POST">
+	<br>
+	
 </body>
 </html>

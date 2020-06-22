@@ -30,10 +30,33 @@ ORDER BY id ASC LIMIT $offset, $Limite_resultados";
 	<link rel="stylesheet" type="text/css" href="../statics/css/tarea1.css">
     <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 	<script src="../statics/js/linkedrows.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/tarea1.js"></script> -->
 </head>
 <body>
+<script>
+function buscar() {
+    var textoBusqueda = $("input#busqueda").val();
+	var tipo = "solicitud";
+    if (textoBusqueda != "" && textoBusqueda.length > 2) {
+        $.post("buscar.php", {valorBusqueda: textoBusqueda, valorTipo: tipo}, function(mensaje) {
+            $("#resultadoBusqueda").html(mensaje);
+        }); 
+    } else { 
+        $("#resultadoBusqueda").html('');
+        return;
+	};
+};
+</script>
+
+<label for="busqueda" class="text-field">Busque al solicitante</label>
+<input type="text" name="busqueda" id="busqueda" value="" onkeyup="buscar();" maxlength="30" autocomplete="off" placeholder="Nombre solicitante" />
+</form>
+<div id="resultadoBusqueda"></div>
+<br>
+<p>Lista completa de médicos</p>
+<br>
 
 <?php
 $result = $db->query($query);
